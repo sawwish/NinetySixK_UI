@@ -1,0 +1,11 @@
+<div class="container-fluid">
+	<div class="row" *ngFor="let profile of profiles" >
+		<div class="col-sm-4"><span>ProfileID :</span><span> {{profile.profileID}}</span></div>
+		<div class="col-sm-4"><span>Name :</span><span> {{profile.name}}</span></div>
+		<div class="col-sm-4"><span>Home town :</span><span> {{profile.nativePlace}}</span></div>
+		<div class="col-sm-4"><span>Relatives :</span><span> {{profile.relatives}}</span></div>
+		<div class="col-sm-4"><span>Income :</span><span> {{profile.income}}</span></div>
+		<div class="col-sm-4"><span>Hobbies :</span><span> {{profile.hobbies}}</span></div>
+		<div class="col-sm-12"><button class="btn btn-primary">View Details</button></div>
+	</div>	
+</div>

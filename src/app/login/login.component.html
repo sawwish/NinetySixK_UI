@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6 lt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7 lt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8 lt8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  -->
+        <title>Login and Registration Form with HTML5 and CSS3</title>
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+		<link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+		
+    </head>
+    <body>
+        <div class="container">
+           
+            <header>
+                <h1>Login and Registration Form</h1>
+				
+            </header>
+            <section>				
+                <div id="container_demo" >
+                    <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
+                    <a class="hiddenanchor" id="toregister"></a>
+                    <a class="hiddenanchor" id="tologin"></a>
+                    <div id="wrapper">
+                        <div id="login" class="animate form" [ngClass]="(showLogin==true)?'show':'hide'">
+                            <form  autocomplete="on"> 
+                                <h1>Log in</h1> 
+                                <p> 
+                                    <label for="username" class="uname" > Your email or username </label>
+                                    <input id="username" [(ngModel)]="username" name="username" required="required" type="text" placeholder="myusername or mymail@mail.com"/>
+                                </p>
+                                <p> 
+                                    <label for="password" class="youpasswd"> Your password </label>
+                                    <input id="password" [(ngModel)]="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" /> 
+                                </p>
+                                <p class="keeplogin"> 
+									<input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
+									<label for="loginkeeping">Keep me logged in</label>
+								</p>
+                                <p > 
+                                   <button class="btn btn-primary" (click)="onLoginClick()">Login</button>	
+								</p>
+                                <p class="change_link">
+									Not a member yet ?
+									<button class="btn btn-primary" (click)="onChangeLinkClick()">Join us</button>	
+								</p>
+                            </form>
+                        </div>
+
+                        <div id="register" class="animate form" [ngClass]="(showLogin==true)?'hide':'show'">
+                            <form   autocomplete="on"> 
+                                <h1> Sign up </h1>
+                                <p class="subHeader"> 
+                                    <label > Login credentials </label>
+                                    
+                                </p>
+ 								
+                                <p> 
+                                    <label for="usernamesignup" class="uname" >Your username</label>
+                                    <input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="mysuperusername690" [(ngModel)]="userInfo.usernameSignUp"/>
+                                </p>
+                                
+                                <p> 
+                                    <label for="passwordsignup" class="youpasswd" >Your password </label>
+                                    <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="eg. X8df!90EO"
+                                    [(ngModel)]="userInfo.passwordSignUp"/>
+                                </p>
+                                <p> 
+                                    <label for="passwordsignup_confirm" class="youpasswd" >Please confirm your password </label>
+                                    <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"
+                                    [(ngModel)]="userInfo.passwordsignup_confirm"/>
+                                </p>
+
+								<p class="subHeader"> 
+                                    <label > Prsonal information </label>
+                                    
+                                </p>
+
+                                <p> 
+                                    <label for="fullName" >Full name </label>
+                                    <input id="fullName" name="fullName" required="required" type="input" 
+                                    [(ngModel)]="userInfo.fullName" placeholder="eg.Vishal Suresh Sawant"/>
+                                </p>
+                                <p> 
+                                    <label for="gender" >Gender </label>
+                                    <select id="gender" [(ngModel)]="userInfo.gender" name='gender'> 
+                                    	<option *ngFor="let genderOption of genderOptions" > {{genderOption}}</option>
+                                    </select>                                   
+                                </p>
+                                <p> 
+                                    <label for="address" >Current residential address </label>
+                                    <textarea id="address" name="address" required="required"  placeholder="eg.Mumbai"[(ngModel)]="userInfo.address"></textarea> 
+                                </p>
+                                <p> 
+                                    <label for="dateOfBirth">Select your date of birth </label>
+                                    <input id="dateOfBirth" name="dateOfBirth" required="required" type="date" placeholder="28-07-1989" [(ngModel)]="userInfo.dateOfBirth"/>
+                                </p>
+                                <p> 
+                                    <label for="relatives" >Relatives</label>
+                                    <input id="relatives" name="relatives" required="required" type="text" placeholder="eg. Pawar,Hingade,Jadhav" [(ngModel)]="userInfo.relatives"/>
+                                </p>
+                                <p> 
+                                    <label for="native"  >Native place</label>
+                                    <input id="native" name="native" required="required" type="text" placeholder="eg. Karad,Satara" [(ngModel)]="userInfo.native"/>
+                                </p>
+                                <p> 
+                                    <label for="birthPlace" >Birth place </label>
+                                    <input id="birthPlace" name="birthPlace" required="required" type="text" placeholder="eg. Mumbai"
+                                    [(ngModel)]="userInfo.birthPlace"/>
+                                </p>
+                                <p> 
+                                    <label for="income" >Annual income</label>
+                                    <input id="income" name="income" required="required" type="number" placeholder="eg. 800000"
+                                    [(ngModel)]="userInfo.income"/>
+                                </p>
+                                <p> 
+                                    <label for="hobbies" >Hobbies </label>
+                                    <input id="hobbies" name="hobbies" required="required" type="text" placeholder="eg. Singing "
+                                    [(ngModel)]="userInfo.hobbies"/>
+                                </p>
+                                <p class="subHeader"> 
+                                    <label > Contact information </label>
+                                    
+                                </p>
+                                <p> 
+                                    <label for="phoneNumber" >Phone number </label>
+                                    <input id="phoneNumber" name="phoneNumber" required="required" type="number" placeholder="eg. 9869213653"
+                                    [(ngModel)]="userInfo.phoneNumber"/>
+                                </p>
+                                <p> 
+                                    <label for="emailId" >Email ID </label>
+                                    <input id="emailId" name="emailId" required="required" type="email" placeholder="eg. abc@gmail.com"
+                                    [(ngModel)]="userInfo.emailId"/>
+                                </p>                                
+                                <p class="signin button"> 
+									<input type="submit" (click)="onChangeSingUpClick()" value="Sign up"/> 
+								</p>
+                                <p class="change_link">  
+									Already a member ?
+									<button class="btn btn-primary" (click)="onChangeMemberClick()">Go and log in</button>
+								</p>
+                            </form>
+                        </div>
+						
+                    </div>
+                </div>  
+            </section>
+        </div>
+    </body>
+</html>-
